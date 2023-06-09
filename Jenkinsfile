@@ -1,5 +1,10 @@
 pipeline{
-    agent any
+    agent {
+        docker{
+            image 'python'
+            args '-p 5000:5000'
+        }
+    }
     stages{
         stage('checkout'){
             steps{
@@ -8,7 +13,7 @@ pipeline{
         }
         stage('build'){
             steps{
-                sh 'echo'
+                sh 'python3 main.py'
             }
            
         }
