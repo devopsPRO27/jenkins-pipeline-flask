@@ -4,6 +4,9 @@ pipeline{
             image 'python'
             args '-p 5000:5000 -u root'
         }
+    parameters{
+        string(name:'NAME',defaultValue:'',description:'omername')
+    }
     }
     stages{
         stage('checkout'){
@@ -25,6 +28,10 @@ pipeline{
            
         }
         stage('build an image'){
+            when{
+                branch 'dev'
+            }
+
             steps{
                 sh 'echo build image'
             }
@@ -32,7 +39,7 @@ pipeline{
         }  
         stage('post'){
             steps{
-                echo 'post'
+                echo "post $params.NAME"
             }
            
         }
