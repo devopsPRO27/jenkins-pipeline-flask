@@ -14,19 +14,19 @@ pipeline{
         }
         stage('test'){
             steps{
-                sh 'test'
+                sh 'echo test'
             }
            
         }
         stage('build an image'){
             steps{
-                sh 'build image'
+                sh 'echo build image'
             }
            
         }  
         stage('post'){
             steps{
-                sh 'psot'
+                echo 'post'
             }
            
         }
