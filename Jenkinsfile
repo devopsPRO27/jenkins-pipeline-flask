@@ -4,9 +4,9 @@ pipeline{
             image 'python'
             args '-p 5000:5000 -u root'
         }
+    }
     parameters{
         string(name:'NAME',defaultValue:'',description:'omername')
-    }
     }
     stages{
         stage('checkout'){
