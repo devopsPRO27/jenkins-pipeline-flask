@@ -2,7 +2,7 @@ pipeline{
     agent {
         docker{
             image 'python'
-            args '-p 5000:5000'
+            args '-p 5000:5000 -u root'
         }
     }
     stages{
@@ -13,7 +13,7 @@ pipeline{
         }
         stage('build'){
             steps{
-                sh 'sudo pip3 install -r requirements.txt'
+                sh ' pip3 install -r requirements.txt'
                 sh 'python3 main.py'
             }
            
